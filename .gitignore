@@ -1,0 +1,5 @@
+
+/.venv
+/app/__pycache__
+/app/routes/watch/__pycache__
+/app/load_file/__pycache__
