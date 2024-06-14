@@ -16,9 +16,9 @@ async def insert_s3(user_id: str, vod_id: int):
         rtm = datetime.now() - dic[user_id]['start_time']
         rtm_minutes = round(rtm.total_seconds() / 60)  # Convert to minutes and round
         start_time = dic[user_id]['start_time'].strftime("%Y%m%d%H%M%S")
-        
         input_data = input_data + f'{user_id},{vod_id},{start_time},{rtm_minutes}\n'
         i += 1
+        del dic[user_id]
         if i > 100:
             await upload_s3(input_data)
             
