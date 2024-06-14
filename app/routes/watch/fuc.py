@@ -21,6 +21,8 @@ async def insert_s3(user_id: str, vod_id: int):
         del dic[user_id]
         if i > 100:
             await upload_s3(input_data)
+            i = 0
+            input_data = ''
             
         return input_data
 
